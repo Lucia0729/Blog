@@ -1,0 +1,15 @@
+防止表单重复提交:
+方法一：struts2
+   1.在form中添加<s:token></s:token>
+   2.在struts.xml中添加对应的拦截器
+        <interceptor-ref name="defaultStack"></interceptor-ref>
+        <interceptor-ref name="token"></interceptor-ref>
+        或
+        <interceptor-ref name="defaultStack"></interceptor-ref>
+        <interceptor-ref name="tokenSession"></interceptor-ref>(tokenSession重复提交时就在当前页面)
+     并且配置拦截器的默认跳转路径
+        <result name="invalid.token">（你想要跳转的提示页面，例如error.jsp）</result>
+        
+方法二：COOKIE,SESSION
+
+方法三：数据库验证
